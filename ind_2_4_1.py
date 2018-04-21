@@ -183,7 +183,7 @@ def trend_index(result_path,classification_map,years):
     nq=int(math.fabs(tif_param.pixel_width*tif_param.pixel_height))
     pos_trend=np.sum(trend[crops]>=0)
     f=open(os.path.join(result_path,'indicator2.4.1_'+str(years[0])+'_'+str(years[1])+'.txt'),'w')
-    txt='Total agricultural land area: '+str(area*nq)
+    txt='Total agricultural land area (squere km): '+str(float(area*nq)/1000000.0)
     txt=txt+'\n'+'Productive and sustainable agriculture land area (squere km): '+str(float(pos_trend*nq)/1000000.0)
     txt=txt+'\n'+'Not productive agriculture land area (squere km): '+str(float((area-pos_trend)*nq)/1000000.0)
     txt=txt+'\n'+'Proportion of agricultural area under productive and sustainable agriculture :'+str((float(pos_trend)/float(area))*100)
